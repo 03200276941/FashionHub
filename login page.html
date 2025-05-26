@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionHub - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .login-bg {
+            background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .profile-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-pink-600 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        FashionHub
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-pink-600">Home</a>
+                    <a href="ladies.html" class="text-gray-700 hover:text-pink-600">Women</a>
+                    <a href="mens.html" class="text-gray-700 hover:text-pink-600">Men</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">Kids</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">Sale</a>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <div id="userProfileIcon" class="hidden cursor-pointer relative group">
+                        <i class="fas fa-user-circle text-2xl text-pink-600"></i>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                            <a href="#" id="viewProfileLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50">My Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50">Orders</a>
+                            <a href="#" id="logoutLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50">Logout</a>
+                        </div>
+                    </div>
+                    <a href="login.html" id="loginIcon" class="text-gray-700 hover:text-pink-600">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="#" class="cart-icon text-gray-700 hover:text-pink-600 relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section id="loginSection" class="min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full flex flex-col md:flex-row rounded-xl overflow-hidden shadow-2xl">
+            <!-- Login Form -->
+            <div class="w-full md:w-1/2 bg-white p-8 md:p-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h2>
+                <p class="text-gray-600 mb-8">Sign in to access your account and start shopping</p>
+                
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                               placeholder="your@email.com">
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" id="password" name="password" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                               placeholder="••••••••">
+                        <div class="flex justify-end mt-2">
+                            <a href="#" class="text-sm text-pink-600 hover:text-pink-700">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" name="remember" 
+                               class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg font-medium transition duration-300">
+                        Sign In
+                    </button>
+                    
+                    <div class="text-center text-sm text-gray-600">
+                        Don't have an account? 
+                        <a href="register.html" class="text-pink-600 hover:text-pink-700 font-medium">Sign up</a>
+                    </div>
+                </form>
+                
+                <div class="mt-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-3 gap-3">
+                        <a href="#" class="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500"></i>
+                        </a>
+                        <a href="#" class="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-facebook-f text-blue-600"></i>
+                        </a>
+                        <a href="#" class="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-apple"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="hidden md:block md:w-1/2 login-bg relative">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center p-12">
+                    <div class="text-white text-center">
+                        <h3 class="text-3xl font-bold mb-4">New to FashionHub?</h3>
+                        <p class="mb-6">Join our fashion community and get access to exclusive offers and personalized recommendations.</p>
+                        <a href="register.html" class="inline-block border-2 border-white text-white hover:bg-white hover:text-pink-600 px-6 py-3 rounded-full font-medium transition duration-300">
+                            Create Account
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section (hidden by default) -->
+    <section id="profileSection" class="min-h-screen py-12 px-4 profile-section">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
+            <div class="md:flex">
+                <!-- Profile Sidebar -->
+                <div class="md:w-1/3 bg-gray-50 p-6">
+                    <div class="text-center mb-6">
+                        <div class="w-32 h-32 rounded-full bg-pink-100 mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user-circle text-6xl text-pink-500"></i>
+                        </div>
+                        <h2 id="userName" class="text-xl font-bold text-gray-800">John Doe</h2>
+                        <p id="userEmail" class="text-gray-600 text-sm">john@example.com</p>
+                    </div>
+                    
+                    <nav class="space-y-2">
+                        <a href="#" class="block px-4 py-2 bg-pink-600 text-white rounded-lg">My Profile</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-pink-50 rounded-lg">Orders</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-pink-50 rounded-lg">Wishlist</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-pink-50 rounded-lg">Addresses</a>
+                        <a href="#" id="logoutBtn" class="block px-4 py-2 text-gray-700 hover:bg-pink-50 rounded-lg">Logout</a>
+                    </nav>
+                </div>
+                
+                <!-- Profile Content -->
+                <div class="md:w-2/3 p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">My Account</h2>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">Personal Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">First Name</label>
+                                <p id="userFirstName" class="text-gray-800">John</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Last Name</label>
+                                <p id="userLastName" class="text-gray-800">Doe</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Email</label>
+                                <p id="userProfileEmail" class="text-gray-800">john@example.com</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Phone</label>
+                                <p id="userPhone" class="text-gray-800">(123) 456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">Default Shipping Address</h3>
+                        <div>
+                            <p id="userAddress" class="text-gray-800">123 Fashion Street</p>
+                            <p id="userCity" class="text-gray-800">Style City, ST 12345</p>
+                            <p id="userCountry" class="text-gray-800">United States</p>
+                        </div>
+                        <button class="mt-3 text-pink-600 hover:text-pink-700 text-sm font-medium">
+                            Edit Address
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-800 mb-4 border-b pb-2">Recent Orders</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="text-gray-600 text-center">You haven't placed any orders yet.</p>
+                            <div class="text-center mt-4">
+                                <a href="ladies.html" class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-lg">
+                                    Start Shopping
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        FashionHub
+                    </h3>
+                    <p class="text-gray-400 mb-4">Your destination for the latest fashion trends and styles for the whole family.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Women's Clothing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Men's Clothing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Kids' Collection</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Sale Items</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>456 Fashion Avenue, Style City, ST 98765</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>(987) 654-3210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>hello@fashionhub.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 FashionHub. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check if user is already logged in (from localStorage)
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                showUserProfile(JSON.parse(loggedInUser));
+            }
+        });
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('remember').checked;
+            
+            // Basic validation
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // In a real app, you would verify credentials with your backend
+            // For demo purposes, we'll use mock data
+            const mockUsers = [
+                {
+                    email: "user@example.com",
+                    password: "password123",
+                    firstName: "John",
+                    lastName: "Doe",
+                    phone: "(123) 456-7890",
+                    address: "123 Fashion Street",
+                    city: "Style City, ST 12345",
+                    country: "United States"
+                },
+                {
+                    email: "jane@example.com",
+                    password: "password123",
+                    firstName: "Jane",
+                    lastName: "Smith",
+                    phone: "(987) 654-3210",
+                    address: "456 Trendy Avenue",
+                    city: "Fashion Town, FT 54321",
+                    country: "United States"
+                }
+            ];
+            
+            const user = mockUsers.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                // Save user data to localStorage if "Remember me" is checked
+                if (rememberMe) {
+                    localStorage.setItem('loggedInUser', JSON.stringify(user));
+                } else {
+                    sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+                }
+                
+                // Show user profile
+                showUserProfile(user);
+            } else {
+                alert('Invalid email or password');
+            }
+        });
+        
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            logoutUser();
+        });
+        
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            logoutUser();
+        });
+        
+        function logoutUser() {
+            // Clear user data from storage
+            localStorage.removeItem('loggedInUser');
+            sessionStorage.removeItem('loggedInUser');
+            
+            // Hide profile section and show login form
+            document.getElementById('profileSection').classList.add('profile-section');
+            document.getElementById('loginSection').classList.remove('hidden');
+            
+            // Update header icons
+            document.getElementById('userProfileIcon').classList.add('hidden');
+            document.getElementById('loginIcon').classList.remove('hidden');
+            
+            // Clear form fields
+            document.getElementById('loginForm').reset();
+        }
+        
+        function showUserProfile(user) {
+            // Update profile information
+            document.getElementById('userName').textContent = `${user.firstName} ${user.lastName}`;
+            document.getElementById('userFirstName').textContent = user.firstName;
+            document.getElementById('userLastName').textContent = user.lastName;
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userProfileEmail').textContent = user.email;
+            document.getElementById('userPhone').textContent = user.phone;
+            document.getElementById('userAddress').textContent = user.address;
+            document.getElementById('userCity').textContent = user.city;
+            document.getElementById('userCountry').textContent = user.country;
+            
+            // Show profile section and hide login form
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('profileSection').classList.remove('profile-section');
+            
+            // Update header icons
+            document.getElementById('loginIcon').classList.add('hidden');
+            document.getElementById('userProfileIcon').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

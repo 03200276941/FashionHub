@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Fashion Collection | FashionHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        .filter-option {
+            transition: all 0.2s ease;
+        }
+        .filter-option:hover {
+            background-color: #fdf2f8;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-pink-600 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        FashionHub
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search for dresses, tops, jeans..." 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <button class="absolute right-0 top-0 h-full px-4 text-gray-600 hover:text-pink-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700">Home</a>
+                    <a href="ladies.html" class="text-pink-600 font-medium">Women</a>
+                    <a href="mens.html" class="text-gray-700 hover:text-pink-600">Men</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">Kids</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">Sale</a>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600 relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-3">
+                <div class="flex flex-col space-y-3">
+                    <div class="relative w-full mb-2">
+                        <input type="text" placeholder="Search for dresses, tops..." 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <button class="absolute right-0 top-0 h-full px-4 text-gray-600 hover:text-pink-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <a href="index.html" class="text-gray-700 hover:text-pink-600 block px-2 py-1">Home</a>
+                    <a href="women.html" class="text-pink-600 font-medium block px-2 py-1">Women</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600 block px-2 py-1">Men</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600 block px-2 py-1">Kids</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600 block px-2 py-1">Sale</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Women's Collection Banner -->
+    <section class="relative bg-gradient-to-r from-pink-100 to-purple-100 py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Women's Collection</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover the latest trends in women's fashion for every occasion</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-8 bg-white"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Filters Sidebar -->
+            <aside class="md:w-1/4">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <!-- Categories -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex justify-between items-center">
+                            <span>Categories</span>
+                            <button class="md:hidden text-pink-600">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </h3>
+                        <div class="filter-section">
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-pink-600 bg-pink-50 font-medium">
+                                        All Women's Clothing
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-gray-700 hover:text-pink-600">
+                                        Dresses
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-gray-700 hover:text-pink-600">
+                                        Tops & Blouses
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-gray-700 hover:text-pink-600">
+                                        Pants & Jeans
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-gray-700 hover:text-pink-600">
+                                        Skirts
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-gray-700 hover:text-pink-600">
+                                        Outerwear
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="filter-option block px-3 py-2 rounded-lg text-gray-700 hover:text-pink-600">
+                                        Activewear
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Price Range</h3>
+                        <div class="px-2">
+                            <input type="range" min="0" max="500" value="250" class="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between mt-2">
+                                <span class="text-sm text-gray-600">$0</span>
+                                <span class="text-sm text-gray-600">$500+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Size -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Size</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="size-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600">XS</button>
+                            <button class="size-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600">S</button>
+                            <button class="size-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600">M</button>
+                            <button class="size-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600">L</button>
+                            <button class="size-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600">XL</button>
+                            <button class="size-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600">XXL</button>
+                        </div>
+                    </div>
+
+                    <!-- Color -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Color</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="color-btn w-8 h-8 rounded-full bg-black border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-white border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-red-500 border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-blue-500 border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-green-500 border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-yellow-300 border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-pink-500 border-2 border-gray-300 hover:border-pink-500"></button>
+                            <button class="color-btn w-8 h-8 rounded-full bg-purple-500 border-2 border-gray-300 hover:border-pink-500"></button>
+                        </div>
+                    </div>
+
+                    <!-- Special Offers -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">Special Offers</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600 rounded border-gray-300">
+                                <span class="text-gray-700">Sale Items</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600 rounded border-gray-300">
+                                <span class="text-gray-700">New Arrivals</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-pink-600 rounded border-gray-300">
+                                <span class="text-gray-700">Bestsellers</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Products Grid -->
+            <div class="md:w-3/4">
+                <!-- Sorting and View Options -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 bg-white p-4 rounded-lg shadow-sm">
+                    <p class="text-gray-600 mb-2 md:mb-0">Showing 1-12 of 86 products</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <span class="text-gray-600 mr-2">Sort by:</span>
+                            <select class="border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                <option>Featured</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest Arrivals</option>
+                                <option>Best Rated</option>
+                            </select>
+                        </div>
+                        <div class="hidden md:flex space-x-2">
+                            <button class="view-option p-2 rounded-lg bg-gray-100 text-gray-700">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-option p-2 rounded-lg text-gray-500 hover:bg-gray-100">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80" 
+                                 alt="Floral Summer Dress" 
+                                 class="w-full h-80 object-cover">
+                            <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                New
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-white p-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="flex justify-center space-x-2">
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-heart text-gray-600"></i>
+                                    </button>
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-eye text-gray-600"></i>
+                                    </button>
+                                    <button class="add-to-cart bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800">Floral Summer Dress</h3>
+                                    <p class="text-gray-500 text-sm">Dresses</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-pink-600">$49.99</p>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 text-xs ml-1">(42)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="Denim Jacket" 
+                                 class="w-full h-80 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-white p-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="flex justify-center space-x-2">
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-heart text-gray-600"></i>
+                                    </button>
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-eye text-gray-600"></i>
+                                    </button>
+                                    <button class="add-to-cart bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800">Denim Jacket</h3>
+                                    <p class="text-gray-500 text-sm">Outerwear</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-pink-600">$59.99</p>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 text-xs ml-1">(47)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="High-Waisted Jeans" 
+                                 class="w-full h-80 object-cover">
+                            <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                -20%
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-white p-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="flex justify-center space-x-2">
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-heart text-gray-600"></i>
+                                    </button>
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-eye text-gray-600"></i>
+                                    </button>
+                                    <button class="add-to-cart bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800">High-Waisted Jeans</h3>
+                                    <p class="text-gray-500 text-sm">Pants</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-pink-600">$39.99</p>
+                                    <p class="text-sm text-gray-400 line-through">$49.99</p>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-500 text-xs ml-1">(36)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80" 
+                                 alt="Silk Blouse" 
+                                 class="w-full h-80 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-white p-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="flex justify-center space-x-2">
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-heart text-gray-600"></i>
+                                    </button>
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-eye text-gray-600"></i>
+                                    </button>
+                                    <button class="add-to-cart bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800">Silk Blouse</h3>
+                                    <p class="text-gray-500 text-sm">Tops</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-pink-600">$34.99</p>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-500 text-xs ml-1">(58)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80" 
+                                 alt="Midi Skirt" 
+                                 class="w-full h-80 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-white p-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="flex justify-center space-x-2">
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-heart text-gray-600"></i>
+                                    </button>
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-eye text-gray-600"></i>
+                                    </button>
+                                    <button class="add-to-cart bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800">Midi Skirt</h3>
+                                    <p class="text-gray-500 text-sm">Skirts</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-pink-600">$29.99</p>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 text-xs ml-1">(27)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 group">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=734&q=80" 
+                                 alt="Yoga Set" 
+                                 class="w-full h-80 object-cover">
+                            <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                -15%
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-white p-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <div class="flex justify-center space-x-2">
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-heart text-gray-600"></i>
+                                    </button>
+                                    <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full">
+                                        <i class="fas fa-eye text-gray-600"></i>
+                                    </button>
+                                    <button class="add-to-cart bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-full">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-medium text-gray-800">Yoga Set</h3>
+                                    <p class="text-gray-500 text-sm">Activewear</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-pink-600">$45.99</p>
+                                    <p class="text-sm text-gray-400 line-through">$53.99</p>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-500 text-xs ml-1">(31)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center mt-12">
+                    <nav class="flex items-center space-x-2">
+                        <button class="pagination-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-600 hover:text-white hover:border-pink-600">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn w-10 h-10 rounded-full bg-pink-600 text-white border border-pink-600">1</button>
+                        <button class="pagination-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-600 hover:text-white hover:border-pink-600">2</button>
+                        <button class="pagination-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-600 hover:text-white hover:border-pink-600">3</button>
+                        <button class="pagination-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-600 hover:text-white hover:border-pink-600">4</button>
+                        <button class="pagination-btn w-10 h-10 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-600 hover:text-white hover:border-pink-600">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    <section class="bg-pink-50 py-12 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Get 10% Off Your First Order</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-8">Subscribe to our newsletter for exclusive offers, new arrivals, and style inspiration.</p>
+            
+            <form class="max-w-md mx-auto flex">
+                <input type="email" 
+                       placeholder="Your email address" 
+                       class="flex-1 px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button type="submit" 
+                        class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-r-lg font-medium transition duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        FashionHub
+                    </h3>
+                    <p class="text-gray-400 mb-4">Your destination for the latest fashion trends and styles for the whole family.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="women.html" class="text-gray-400 hover:text-pink-500">Women's Clothing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Men's Clothing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Kids' Collection</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Sale Items</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>456 Fashion Avenue, Style City, ST 98765</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>(987) 654-3210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>hello@fashionhub.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 FashionHub. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Your Bag (<span class="cart-count">0</span> items)</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items space-y-4">
+                <!-- Cart items will be added here dynamically -->
+                <div class="text-center py-8 text-gray-500">
+                    <i class="fas fa-shopping-bag text-4xl mb-2"></i>
+                    <p>Your bag is empty</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-6 pt-6">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Subtotal:</span>
+                    <span class="font-medium cart-subtotal">$0.00</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Shipping:</span>
+                    <span class="font-medium">Calculated at checkout</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span class="text-gray-600">Tax:</span>
+                    <span class="font-medium">Calculated at checkout</span>
+                </div>
+                <div class="flex justify-between text-lg font-bold">
+                    <span>Total:</span>
+                    <span class="cart-total">$0.00</span>
+                </div>
+                
+                <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg font-medium mt-6 transition duration-300">
+                    Proceed to Checkout
+                </button>
+                <button class="w-full border border-pink-600 text-pink-600 hover:bg-pink-50 py-3 rounded-lg font-medium mt-3 transition duration-300">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <script src="index.js"></script>
+    <script>
+        // Mobile filter toggle
+        document.querySelectorAll('.filter-section h3 button').forEach(button => {
+            button.addEventListener('click', function() {
+                const section = this.closest('.filter-section');
+                const content = section.querySelector('ul, div');
+                content.classList.toggle('hidden');
+            });
+        });
+
+        // Size selection
+        document.querySelectorAll('.size-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(btn => {
+                    btn.classList.remove('bg-pink-600', 'text-white', 'border-pink-600');
+                });
+                this.classList.add('bg-pink-600', 'text-white', 'border-pink-600');
+            });
+        });
+
+        // Color selection
+        document.querySelectorAll('.color-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.color-btn').forEach(btn => {
+                    btn.classList.remove('border-pink-600', 'ring-2', 'ring-offset-2', 'ring-pink-500');
+                });
+                this.classList.add('border-pink-600', 'ring-2', 'ring-offset-2', 'ring-pink-500');
+            });
+        });
+
+        // Pagination
+        document.querySelectorAll('.pagination-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('bg-pink-600')) {
+                    document.querySelectorAll('.pagination-btn').forEach(btn => {
+                        btn.classList.remove('bg-pink-600', 'text-white', 'border-pink-600');
+                    });
+                    this.classList.add('bg-pink-600', 'text-white', 'border-pink-600');
+                }
+            });
+        });
+
+        // View options
+        document.querySelectorAll('.view-option').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.view-option').forEach(btn => {
+                    btn.classList.remove('bg-gray-100', 'text-gray-700');
+                });
+                this.classList.add('bg-gray-100', 'text-gray-700');
+            });
+        });
+    </script>
+</body>
+</html>
