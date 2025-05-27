@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionHub - Accessories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .filter-section {
+            scrollbar-width: thin;
+            scrollbar-color: #db2777 transparent;
+        }
+        .filter-section::-webkit-scrollbar {
+            width: 6px;
+        }
+        .filter-section::-webkit-scrollbar-thumb {
+            background-color: #db2777;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-pink-600 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        FashionHub
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-pink-600">Home</a>
+                    <a href="ladies.html" class="text-gray-700 hover:text-pink-600">Women</a>
+                    <a href="mens.html" class="text-gray-700 hover:text-pink-600">Men</a>
+                    <a href="kids.html" class="text-gray-700 hover:text-pink-600">Kids</a>
+                    <a href="accessories.html" class="text-pink-600 font-medium">Accessories</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">Sale</a>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-700 hover:text-pink-600">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="#" class="cart-icon text-gray-700 hover:text-pink-600 relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count absolute -top-2 -right-2 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="text-gray-700 hover:text-pink-600 py-2">Home</a>
+                <a href="ladies.html" class="text-gray-700 hover:text-pink-600 py-2">Women</a>
+                <a href="mens.html" class="text-gray-700 hover:text-pink-600 py-2">Men</a>
+                <a href="kids.html" class="text-gray-700 hover:text-pink-600 py-2">Kids</a>
+                <a href="Accessories.html" class="text-pink-600 font-medium py-2">Accessories</a>
+                <a href="#" class="text-gray-700 hover:text-pink-600 py-2">Sale</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-pink-600">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <span class="text-sm font-medium text-pink-600">Accessories</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Page Header -->
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Fashion Accessories</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Complete your look with our stylish collection of accessories</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Filters Section -->
+            <div class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white p-4 rounded-lg shadow-sm sticky top-24 filter-section overflow-y-auto max-h-[calc(100vh-120px)]">
+                    <h3 class="font-bold text-lg mb-4 text-gray-800">Filters</h3>
+                    
+                    <!-- Category Filter -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-gray-700 mb-3">Categories</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Bags & Purses</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Jewelry</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Watches</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Sunglasses</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Hats & Caps</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Scarves & Wraps</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Price Filter -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-gray-700 mb-3">Price Range</h4>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-600">$10</span>
+                            <span class="text-sm text-gray-600">$500</span>
+                        </div>
+                        <input type="range" min="10" max="500" value="250" class="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between mt-4">
+                            <input type="number" min="10" max="500" placeholder="Min" class="w-20 px-2 py-1 border border-gray-300 rounded text-sm">
+                            <span class="mx-2 text-gray-500">to</span>
+                            <input type="number" min="10" max="500" placeholder="Max" class="w-20 px-2 py-1 border border-gray-300 rounded text-sm">
+                        </div>
+                    </div>
+                    
+                    <!-- Color Filter -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-gray-700 mb-3">Color</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="w-6 h-6 rounded-full bg-black border border-gray-300 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-white border border-gray-300 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-red-500 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-blue-500 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-green-500 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-yellow-500 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-pink-500 focus:ring-2 focus:ring-pink-500"></button>
+                            <button class="w-6 h-6 rounded-full bg-purple-500 focus:ring-2 focus:ring-pink-500"></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Filter -->
+                    <div class="mb-6">
+                        <h4 class="font-medium text-gray-700 mb-3">Brand</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Gucci</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Prada</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Michael Kors</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">Kate Spade</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                                    <span class="ml-2 text-gray-600">FashionHub</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium">
+                        Apply Filters
+                    </button>
+                    <button class="w-full mt-2 text-pink-600 hover:text-pink-700 py-2 text-sm font-medium">
+                        Reset All
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Products Section -->
+            <div class="flex-1">
+                <!-- Sorting and View Options -->
+                <div class="bg-white p-4 rounded-lg shadow-sm mb-6 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-600 mb-2 md:mb-0">Showing <span class="font-medium">1-12</span> of <span class="font-medium">48</span> products</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <label for="sort" class="mr-2 text-sm text-gray-600">Sort by:</label>
+                            <select id="sort" class="border border-gray-300 rounded text-sm py-1 px-2 focus:outline-none focus:ring-1 focus:ring-pink-500">
+                                <option>Featured</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest Arrivals</option>
+                                <option>Best Sellers</option>
+                            </select>
+                        </div>
+                        <div class="hidden md:flex space-x-1">
+                            <button class="p-2 text-gray-400 hover:text-pink-600">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="p-2 text-gray-400 hover:text-pink-600">
+                                <i class="fas fa-th-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden product-card transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1591348122449-02525d70379b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Designer Handbag" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 text-gray-700 hover:text-pink-600 shadow-md">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span class="text-xs bg-pink-600 text-white px-2 py-1 rounded">New</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-medium text-gray-800 mb-1">Elegant Leather Handbag</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Gucci</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">$249.99</p>
+                                    <p class="text-xs text-gray-500 line-through">$299.99</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <div class="flex text-amber-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(142)</span>
+                            </div>
+                            <button class="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium text-sm transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 2 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden product-card transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gold Necklace" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 text-gray-700 hover:text-pink-600 shadow-md">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-medium text-gray-800 mb-1">Gold Plated Necklace</h3>
+                                    <p class="text-sm text-gray-600 mb-2">FashionHub</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">$89.99</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <div class="flex text-amber-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(87)</span>
+                            </div>
+                            <button class="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium text-sm transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 3 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden product-card transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Luxury Watch" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 text-gray-700 hover:text-pink-600 shadow-md">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span class="text-xs bg-pink-600 text-white px-2 py-1 rounded">Bestseller</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-medium text-gray-800 mb-1">Classic Leather Watch</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Michael Kors</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">$199.99</p>
+                                    <p class="text-xs text-gray-500 line-through">$249.99</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <div class="flex text-amber-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(256)</span>
+                            </div>
+                            <button class="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium text-sm transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 4 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden product-card transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Aviator Sunglasses" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 text-gray-700 hover:text-pink-600 shadow-md">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-medium text-gray-800 mb-1">Aviator Sunglasses</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Ray-Ban</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">$149.99</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <div class="flex text-amber-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(198)</span>
+                            </div>
+                            <button class="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium text-sm transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 5 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden product-card transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Silk Scarf" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 text-gray-700 hover:text-pink-600 shadow-md">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span class="text-xs bg-pink-600 text-white px-2 py-1 rounded">-30%</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-medium text-gray-800 mb-1">Floral Silk Scarf</h3>
+                                    <p class="text-sm text-gray-600 mb-2">FashionHub</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">$34.99</p>
+                                    <p class="text-xs text-gray-500 line-through">$49.99</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <div class="flex text-amber-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(64)</span>
+                            </div>
+                            <button class="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium text-sm transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 6 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden product-card transition duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Fedora Hat" class="w-full h-64 object-cover">
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-2 text-gray-700 hover:text-pink-600 shadow-md">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-medium text-gray-800 mb-1">Wool Fedora Hat</h3>
+                                    <p class="text-sm text-gray-600 mb-2">Prada</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-gray-800">$79.99</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-3">
+                                <div class="flex text-amber-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(42)</span>
+                            </div>
+                            <button class="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-medium text-sm transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="mt-8 flex justify-center">
+                    <nav class="inline-flex rounded-md shadow-sm">
+                        <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-pink-600 font-medium">1</a>
+                        <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                        <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                        <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50 rounded-r-md">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="bg-pink-50 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Stay Updated</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-6">Subscribe to our newsletter for the latest trends, exclusive offers, and style tips.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-l-lg border border-r-0 border-gray-300 focus:outline-none focus:ring-1 focus:ring-pink-500">
+                <button type="submit" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-r-lg font-medium">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+  <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        FashionHub
+                    </h3>
+                    <p class="text-gray-400 mb-4">Your destination for the latest fashion trends and styles for the whole family.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1ZWmqrpR7B/" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/reel/DCm2RnQJ2-l/?igsh=MXd2ZXczbTM1eGtnbw==" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/qr/BVI4CS32UWCVB1" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+              <!-- Column 2 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="ladies.html" class="text-gray-400 hover:text-pink-500">Women's Clothing</a></li>
+                        <li><a href="mens.html" class="text-gray-400 hover:text-pink-500">Men's Clothing</a></li>
+                        <li><a href="kids.html" class="text-gray-400 hover:text-pink-500">Kids' Collection</a></li>
+                        <li><a href="Accessories.html" class="text-gray-400 hover:text-pink-500">Accessories</a></li>
+                        <li><a href="" class="text-gray-400 hover:text-pink-500">Sale Items</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>plot no .... lasbella House Garden East Karachi</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>03200276941</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>Bakhtawark085.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 FashionHub. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartCount = document.querySelector('.cart-count');
+                let count = parseInt(cartCount.textContent);
+                cartCount.textContent = count + 1;
+                
+                // Animation for cart icon
+                const cartIcon = document.querySelector('.cart-icon');
+                cartIcon.classList.add('animate-bounce');
+                setTimeout(() => {
+                    cartIcon.classList.remove('animate-bounce');
+                }, 1000);
+                
+                // Show added to cart message
+                alert('Item added to cart!');
+            });
+        });
+
+        // Color filter selection
+        document.querySelectorAll('.filter-section button[class*="bg-"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('ring-2');
+                this.classList.toggle('ring-pink-500');
+            });
+        });
+    </script>
+</body>
+</html>
